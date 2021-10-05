@@ -35,11 +35,11 @@ public class AutoRed1 extends LinearOpMode {
 
 
             // Send calculated power to wheels
-            leftDrive.setPower(leftPower);
-            rightDrive.setPower(rightPower);
+            leftDrive.setPower(1);
+            rightDrive.setPower(1);
 
             // Show the elapsed game time and wheel power.
-            telemetry.addData("Motors", "left (%.2f), right (%.2f)", leftPower, rightPower);
+            telemetry.addData("Motors", "left (%.2f), right (%.2f)", 1, 1);
             telemetry.update();
         }
     }
