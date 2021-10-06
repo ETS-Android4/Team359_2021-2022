@@ -17,6 +17,7 @@
 
 import java.util.regex.Pattern
 
+
 apply plugin: 'com.android.application'
 
 android {
@@ -54,7 +55,7 @@ android {
     defaultConfig {
         signingConfig signingConfigs.debug
         applicationId 'com.qualcomm.ftcrobotcontroller'
-        minSdkVersion 23
+        minSdkVersion 24
         //noinspection ExpiredTargetSdkVersion
         targetSdkVersion 28
 
@@ -126,5 +127,6 @@ repositories {
     flatDir {
         dirs rootProject.file('libs')
     }
+    mavenCentral()
 }
 
