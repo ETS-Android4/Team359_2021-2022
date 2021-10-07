@@ -28,6 +28,7 @@ public class motorpractice extends LinearOpMode {
     // Declare OpMode members.
     private DcMotor leftDrive;
     private DcMotor rightDrive;
+    private DcMotor side;
 
     @Override
     public void runOpMode() {
@@ -39,6 +40,7 @@ public class motorpractice extends LinearOpMode {
         // step (using the FTC Robot Controller app on the phone).
         leftDrive  = hardwareMap.get(DcMotor.class, "left_drive");
         rightDrive = hardwareMap.get(DcMotor.class, "right_drive");
+        side = hardwareMap.get(DcMotor.class, "side");
 
 
         // Wait for the game to start (driver presses PLAY)
@@ -69,7 +71,9 @@ public class motorpractice extends LinearOpMode {
             // Send calculated power to wheels
             leftDrive.setPower(0.8);
             rightDrive.setPower(0.8);
-
+            sleep(2000);
+            side.setPower(0.8);
+            sleep(2000);
             // Show the elapsed game time and wheel power.
             //telemetry.addData("Motors", "left (%.2f), right (%.2f)", leftPower, rightPower);
             //telemetry.update();
