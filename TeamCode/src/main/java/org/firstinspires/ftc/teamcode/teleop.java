@@ -3,23 +3,34 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 
 import java.util.List;
 
 @TeleOp
 public class teleop extends LinearOpMode {
 
-    private DcMotor motorLeft;
-    private DcMotor motorRight;
-    private DcMotor motorMiddle;
+    DcMotor motorLeft1;
+    DcMotor motorRight1;
+    DcMotor motorLeft2;
+    DcMotor motorRight2;
+    DcMotor Carousel;
+    DcMotor Intake;
+    DcMotor Lift;
+    Servo bucket;
 
     public void runOpMode() throws InterruptedException {
 
-        motorLeft = hardwareMap.dcMotor.get("motorLeft");
-        motorRight = hardwareMap.dcMotor.get("motorRight");
-        motorMiddle = hardwareMap.dcMotor.get("motorMiddle");
+        motorLeft1 = hardwareMap.dcMotor.get("motorLeft1");
+        motorRight1 = hardwareMap.dcMotor.get("motorRight1");
+        motorLeft2 = hardwareMap.dcMotor.get("motorLeft2");
+        motorRight2 = hardwareMap.dcMotor.get("motorRight2");
+        Carousel = hardwareMap.dcMotor.get("Carousel");
+        Intake = hardwareMap.dcMotor.get("Intake");
+        Lift = hardwareMap.dcMotor.get("Lift");
+        bucket = hardwareMap.servo.get("bucket");
 
-        motorLeft.setDirection(DcMotor.Direction.REVERSE);
+        motorLeft1.setDirection(DcMotor.Direction.REVERSE);
 
         waitForStart();
 
@@ -27,17 +38,41 @@ public class teleop extends LinearOpMode {
             telemetry.addData("opModeIsActive", opModeIsActive());
             telemetry.update();
 
-            //motorLeft.setPower(0.5f);
-            //motorRight.setPower(0.5f);
+            //weird mecanum stuff
+
+            if(gamepad1.a)
+            {
+                Intake.setPower(-1);
+            }
+            else
+            {
+                Intake.setPower(gamepad1.right_trigger);
+            }
+
+            if(gamepad1.x)
+            {
+                bucket.setPosition(0);
+            }
+            if(gamepad1.b)
+            {
+                bucket.setPosition(1);
+            }
 
             telemetry.addData("Motors Running", "Cool");
             telemetry.update();
-            if (gamepad1.left_stick_y > 0.8)
+
+
+            //idle();
+        }
+    }
+}
+
+            /*if (gamepad1.left_stick_y > 0.8 || gamepad1.left_stick_y < -0.8)
             {
                 motorLeft.setPower(gamepad1.left_stick_y);
                 motorRight.setPower(gamepad1.left_stick_y);
             }
-            else if (gamepad1.left_stick_x > 0.8)
+            else if (gamepad1.left_stick_x > 0.8 || gamepad1.left_stick_x < -0.8)
             {
                 motorMiddle.setPower(gamepad1.left_stick_x);
             }
@@ -46,10 +81,4 @@ public class teleop extends LinearOpMode {
                 motorLeft.setPower(gamepad1.left_stick_y);
                 motorRight.setPower(gamepad1.left_stick_y);
                 motorMiddle.setPower(gamepad1.left_stick_x);
-            }
-            motorLeft.setPower(gamepad1.right_stick_x);
-            motorRight.setPower(gamepad1.right_stick_x);
-            //idle();
-        }
-    }
-}
+            }*/
