@@ -40,7 +40,7 @@ public class teleop extends LinearOpMode {
 
             //weird mecanum stuff
 
-            if(gamepad1.a)
+            if(gamepad2.a)
             {
                 Intake.setPower(-1);
             }
@@ -49,11 +49,11 @@ public class teleop extends LinearOpMode {
                 Intake.setPower(gamepad1.right_trigger);
             }
 
-            if(gamepad1.x)
+            if(gamepad2.x)
             {
                 bucket.setPosition(0);
             }
-            if(gamepad1.b)
+            if(gamepad2.b)
             {
                 bucket.setPosition(1);
             }
