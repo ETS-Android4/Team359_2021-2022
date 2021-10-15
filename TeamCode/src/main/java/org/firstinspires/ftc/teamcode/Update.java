@@ -13,8 +13,7 @@ import org.openftc.easyopencv.OpenCvCameraRotation;
 
 @Config
 @Autonomous(name="OpenCV_Test", group="Tutorials")
-
-public class OpenCV_Tutorial_Freight_Frenzy extends LinearOpMode {
+class OpenCV_Tutorial_Freight_Frenzy extends LinearOpMode {
 
     private OpenCvCamera webcam;
 
@@ -47,7 +46,17 @@ public class OpenCV_Tutorial_Freight_Frenzy extends LinearOpMode {
         myPipeline.ConfigureScalarLower(scalarLowerYCrCb.val[0],scalarLowerYCrCb.val[1],scalarLowerYCrCb.val[2]);
         myPipeline.ConfigureScalarUpper(scalarUpperYCrCb.val[0],scalarUpperYCrCb.val[1],scalarUpperYCrCb.val[2]);
         // Webcam Streaming
-        webcam.openCameraDeviceAsync(() -> webcam.startStreaming(CAMERA_WIDTH, CAMERA_HEIGHT, OpenCvCameraRotation.UPRIGHT));
+        webcam.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener() {
+            @Override
+            public void onOpened() {
+                webcam.startStreaming(CAMERA_WIDTH, CAMERA_HEIGHT, OpenCvCameraRotation.UPRIGHT);
+            }
+
+            @Override
+            public void onError(int errorCode) {
+                //not gonna happen
+            }
+        });
 
         // Only if you are using ftcdashboard
 //        FtcDashboard dashboard = FtcDashboard.getInstance();
