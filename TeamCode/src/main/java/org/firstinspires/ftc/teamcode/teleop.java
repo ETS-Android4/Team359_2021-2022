@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
+
 import java.util.List;
 
 @TeleOp
@@ -38,7 +39,22 @@ public class teleop extends LinearOpMode {
             telemetry.addData("opModeIsActive", opModeIsActive());
             telemetry.update();
 
-            //weird mecanum stuff
+            //weird mechanum stuff
+            double RightX = gamepad1.right_stick_x;
+            double LeftY = -gamepad1.left_stick_y;
+            double LeftX = gamepad1.left_stick_x;
+
+            double v1 = LeftY - LeftX - RightX;
+            double v2 = LeftY + LeftX + RightX;
+            double v3 = LeftY - LeftX + RightX;
+            double v4 = LeftY + LeftX - RightX;
+
+            motor1.setPower(v1);
+            motor2.setPower(v2);
+            motor3.setPower(v3);
+            motor4.setPower(v4);
+
+            //test this since i dont understand how it works
 
             if(gamepad2.a)
             {
