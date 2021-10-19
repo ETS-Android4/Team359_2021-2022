@@ -99,7 +99,7 @@ public class Autonomous1 extends LinearOpMode {
                 Arm.setPower(0);
                 Intake.setPower(0);
                 //carisouel thing here
-                DRIVE
+
                 //segment 3 - this code will never ever run because the code before it will be broken
                 drive(0.7, -15, -30);
 

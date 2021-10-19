@@ -10,7 +10,7 @@ import org.opencv.core.Scalar;
 import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
-
+//credit to pink to the future
 @Config
 @Autonomous(name="OpenCV_Test", group="Tutorials")
 class OpenCV_Tutorial_Freight_Frenzy extends LinearOpMode {
@@ -71,10 +71,6 @@ class OpenCV_Tutorial_Freight_Frenzy extends LinearOpMode {
             if(myPipeline.error){
                 telemetry.addData("Exception: ", myPipeline.debug);
             }
-            // Only use this line of the code when you want to find the lower and upper values
-            // testing(myPipeline);
-
-            // Watch our YouTube Tutorial for the better explanation
 
             telemetry.addData("RectArea: ", myPipeline.getRectArea());
             telemetry.update();

@@ -115,6 +115,7 @@ Note: Some names start with "Team" and others start with "team".  This is intent
          package="org.firstinspires.ftc.teamcode"
     to be
          package="org.firstinspires.ftc.team0417"
+    
 
 5)  Add:    include ':Team0417' to the "/settings.gradle" file.
     
