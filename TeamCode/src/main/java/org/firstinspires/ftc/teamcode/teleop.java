@@ -40,19 +40,19 @@ public class teleop extends LinearOpMode {
             telemetry.update();
 
             //weird mechanum stuff
-            double RightX = gamepad1.right_stick_x;
-            double LeftY = -gamepad1.left_stick_y;
-            double LeftX = gamepad1.left_stick_x;
 
-            double v1 = LeftY - LeftX - RightX;
-            double v2 = LeftY + LeftX + RightX;
-            double v3 = LeftY - LeftX + RightX;
-            double v4 = LeftY + LeftX - RightX;
+            double r = Math.hypot(gamepad1.left_stick_x, gamepad1.left_stick_y);
+            double robotAngle = Math.atan2(gamepad1.left_stick_y, gamepad1.left_stick_x) - Math.PI / 4;
+            double rightX = gamepad1.right_stick_x;
+            final double v1 = r * Math.cos(robotAngle) + rightX;
+            final double v2 = r * Math.sin(robotAngle) - rightX;
+            final double v3 = r * Math.sin(robotAngle) + rightX;
+            final double v4 = r * Math.cos(robotAngle) - rightX;
 
-            motor1.setPower(v1);
-            motor2.setPower(v2);
-            motor3.setPower(v3);
-            motor4.setPower(v4);
+            motorLeft1.setPower(v1);
+            motorRight1.setPower(v2);
+            motorLeft2.setPower(v3);
+            motorRight2.setPower(v4);
 
             //test this since i dont understand how it works
 
