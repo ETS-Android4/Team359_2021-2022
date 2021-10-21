@@ -25,6 +25,8 @@ public class test extends LinearOpMode {
 
             motor1.setPower(gamepad1.left_stick_y);
             motor2.setPower(gamepad1.right_stick_y);
+            telemetry.update();
+            telemetry.addData("jackfruit", gamepad1.right_stick_y);
 
             /**
              * Wheels
