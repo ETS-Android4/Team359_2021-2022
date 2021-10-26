@@ -13,7 +13,7 @@ public class testDrive extends LinearOpMode {
     DcMotor motorRight1;
     DcMotor motorLeft2;
     DcMotor motorRight2;
-    DcMotor Intake;
+    //DcMotor Intake;
 
     public void runOpMode() throws InterruptedException {
 
@@ -21,9 +21,11 @@ public class testDrive extends LinearOpMode {
         motorRight1 = hardwareMap.dcMotor.get("motorRight1");
         motorLeft2 = hardwareMap.dcMotor.get("motorLeft2");
         motorRight2 = hardwareMap.dcMotor.get("motorRight2");
-        Intake = hardwareMap.dcMotor.get("Intake");
+        //Intake = hardwareMap.dcMotor.get("Intake");
 
         motorLeft1.setDirection(DcMotor.Direction.REVERSE);
+        motorLeft2.setDirection(DcMotor.Direction.REVERSE);
+
 
         waitForStart();
 
@@ -38,12 +40,19 @@ public class testDrive extends LinearOpMode {
 
             sleep(1000);
 
-            motorLeft1.setPower(0);
-            motorLeft2.setPower(0);
-            motorRight1.setPower(0);
-            motorRight2.setPower(0);
+            motorLeft1.setPower(-0.8);
+            motorLeft2.setPower(-0.8);
+            motorRight1.setPower(-0.8);
+            motorRight2.setPower(-0.8);
 
-            Intake.setPower(0.8);
+            sleep(1000);
+
+            motorLeft1.setPower(-0.8);
+            motorLeft2.setPower(0.8);
+            motorRight1.setPower(-0.8);
+            motorRight2.setPower(0.8);
+
+            //Intake.setPower(0.8);
 
             sleep(1000);
 
