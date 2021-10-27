@@ -33,24 +33,24 @@ public class testDrive extends LinearOpMode {
             telemetry.addData("opModeIsActive", opModeIsActive());
             telemetry.update();
 
-            motorLeft1.setPower(0.8);
-            motorLeft2.setPower(0.8);
-            motorRight1.setPower(0.8);
-            motorRight2.setPower(0.8);
+            motorLeft1.setPower(1);
+            motorLeft2.setPower(1);
+            motorRight1.setPower(1);
+            motorRight2.setPower(1);
 
-            sleep(1000);
+            sleep(6000);
 
-            motorLeft1.setPower(-0.8);
-            motorLeft2.setPower(-0.8);
-            motorRight1.setPower(-0.8);
-            motorRight2.setPower(-0.8);
+            motorLeft1.setPower(-1);
+            motorLeft2.setPower(-1);
+            motorRight1.setPower(-1);
+            motorRight2.setPower(-1);
 
-            sleep(1000);
+            sleep(6000);
 
-            motorLeft1.setPower(-0.8);
-            motorLeft2.setPower(0.8);
-            motorRight1.setPower(-0.8);
-            motorRight2.setPower(0.8);
+            motorLeft1.setPower(-1);
+            motorLeft2.setPower(1);
+            motorRight1.setPower(-1);
+            motorRight2.setPower(1);
 
             //Intake.setPower(0.8);
 
