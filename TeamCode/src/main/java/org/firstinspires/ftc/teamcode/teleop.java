@@ -15,10 +15,10 @@ public class teleop extends LinearOpMode {
     DcMotor motorRight1;
     DcMotor motorLeft2;
     DcMotor motorRight2;
-    DcMotor Carousel;
-    DcMotor Intake;
-    DcMotor Lift;
-    Servo bucket;
+    //DcMotor Carousel;
+    //DcMotor Intake;
+    //DcMotor Lift;
+    //Servo bucket;
 
     public void runOpMode() throws InterruptedException {
 
@@ -26,10 +26,10 @@ public class teleop extends LinearOpMode {
         motorRight1 = hardwareMap.dcMotor.get("motorRight1");
         motorLeft2 = hardwareMap.dcMotor.get("motorLeft2");
         motorRight2 = hardwareMap.dcMotor.get("motorRight2");
-        Carousel = hardwareMap.dcMotor.get("Carousel");
-        Intake = hardwareMap.dcMotor.get("Intake");
-        Lift = hardwareMap.dcMotor.get("Lift");
-        bucket = hardwareMap.servo.get("bucket");
+        //Carousel = hardwareMap.dcMotor.get("Carousel");
+        //Intake = hardwareMap.dcMotor.get("Intake");
+        //Lift = hardwareMap.dcMotor.get("Lift");
+        //bucket = hardwareMap.servo.get("bucket");
 
         motorLeft1.setDirection(DcMotor.Direction.REVERSE);
 
@@ -56,7 +56,7 @@ public class teleop extends LinearOpMode {
 
             //test this since i dont understand how it works
 
-            if(gamepad2.a)
+            /* if(gamepad2.a)
             {
                 Intake.setPower(-1);
             }
@@ -72,7 +72,7 @@ public class teleop extends LinearOpMode {
             if(gamepad2.b)
             {
                 bucket.setPosition(1);
-            }
+            } */
 
             telemetry.addData("Motors Running", "Cool");
             telemetry.update();
