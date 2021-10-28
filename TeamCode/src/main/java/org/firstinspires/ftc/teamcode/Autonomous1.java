@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
+import android.telecom.Call;
+import org.firstinspires.ftc.teamcode.VisionPipeline;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -9,13 +11,11 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 @Autonomous(name = "Autonomous1")
 public class Autonomous1 extends LinearOpMode {
-
     private DcMotor RightDrive;
     private DcMotor LeftDrive;
     private DcMotor Arm;
     private DcMotor Intake;
     private DcMotor Carousel; //did i spell it right
-
     //Convert from the counts per revolution of the encoder to counts per inch
     static final double HD_COUNTS_PER_REV = 28;
     static final double DRIVE_GEAR_REDUCTION = 20.15293;
@@ -30,7 +30,6 @@ public class Autonomous1 extends LinearOpMode {
     private void drive(double power, double leftInches, double rightInches) {
         int rightTarget;
         int leftTarget;
-
         if (opModeIsActive()) {
             // Create target positions
             rightTarget = RightDrive.getCurrentPosition() + (int)(rightInches * DRIVE_COUNTS_PER_IN);
@@ -83,6 +82,7 @@ public class Autonomous1 extends LinearOpMode {
                 //lift arm and hold
                 Arm.setTargetPosition(120);
                 Arm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
                 Arm.setPower(0.3);
 
                 //drive forward for 1 second
@@ -108,3 +108,4 @@ public class Autonomous1 extends LinearOpMode {
         }
     }
 }
+

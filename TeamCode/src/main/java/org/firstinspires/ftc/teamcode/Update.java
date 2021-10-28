@@ -12,7 +12,7 @@ import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
 //credit to pink to the future
 @Config
-@Autonomous(name="OpenCV_Test", group="Tutorials")
+@Autonomous(name="OpenCV_Test")
 class OpenCV_Tutorial_Freight_Frenzy extends LinearOpMode {
 
     private OpenCvCamera webcam;
