@@ -23,7 +23,7 @@ public class testDrive extends LinearOpMode {
         motorRight2 = hardwareMap.dcMotor.get("motorRight2");
         //Intake = hardwareMap.dcMotor.get("Intake");
 
-        motorLeft1.setDirection(DcMotor.Direction.REVERSE);
+        motorRight1.setDirection(DcMotor.Direction.REVERSE);
         motorLeft2.setDirection(DcMotor.Direction.REVERSE);
 
 
