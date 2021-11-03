@@ -28,7 +28,7 @@ public class teleop extends LinearOpMode {
         motorRight2 = hardwareMap.dcMotor.get("motorRight2");
         //Carousel = hardwareMap.dcMotor.get("Carousel");
         //Intake = hardwareMap.dcMotor.get("Intake");
-        //Lift = hardwareMap.dcMotor.get("Lift");
+        //Lift = hardwareMap.dcMotor.get("Could not find com.amcerobotics.dashboard:dashboard:0.4.3.Lift");
         //bucket = hardwareMap.servo.get("bucket");
 
         motorLeft1.setDirection(DcMotor.Direction.REVERSE);
