@@ -4,7 +4,7 @@ package org.firstinspires.ftc.teamcode;
         import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
         import com.qualcomm.robotcore.hardware.DcMotor;
 
-@TeleOp(name = "jonathanTest")
+@TeleOp
 public class motorpractice extends LinearOpMode {
 
     DcMotor motorLeft;
@@ -44,17 +44,21 @@ public class motorpractice extends LinearOpMode {
             {
                 Intake.setPower(gamepad1.right_trigger);
             }
-
+            // forward and side-to-side case
+            // TODO deal with drift
             if (Math.abs(gamepad1.right_stick_x) > 0 && Math.abs(gamepad1.left_stick_y) > 0) {
+                //to the right
                 if(gamepad1.right_stick_x > 0){
                     leftMotorPower = 0;
                     rightMotorPower = gamepad1.right_stick_x;
                 }
+                //to the left
                 else if (gamepad1.right_stick_x < 0){
                     rightMotorPower = 0;
                     leftMotorPower = gamepad1.right_stick_x;
                 }
             }
+            // turning side to side
             else if (Math.abs(gamepad1.right_stick_x) > 0){
                 if(gamepad1.right_stick_x > 0){
                     leftMotorPower = -gamepad1.right_stick_x;
